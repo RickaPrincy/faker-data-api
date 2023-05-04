@@ -15,7 +15,6 @@ app.use("/file",express.static("file"));
 /*-----------------------------------------------*/
 app.post("/",(req,res)=>{
     let path = generate(req.body);
-
     res.send({url : "http://localhost:5000/file/" + path});
 });
 

@@ -1,4 +1,5 @@
 import fs from "fs";
+import { bodyInsert } from "./bodyInsert.js";
 
 /**
  * Give a clean fileName based on the tableName
@@ -26,11 +27,11 @@ function formatFileName(tableName){
  */
 
 function headInsert(tableName,columns){
-    let query = `INSERT INTO ${tableName} ( `;
+    let query = `INSERT INTO ${tableName} (\n\t`;
 
     for(let i = 0; i < columns.length; i++){
         query += columns[i].name;
-        i === columns.length - 1 ? query += " ) VALUES " : query += ", ";
+        i === columns.length - 1 ? query += "\n)\nVALUES " : query += ",\n\t";
     }
 
     return query;
@@ -60,5 +61,6 @@ function writeFile(tableName,query){
  */
 export default function generate({tableName,numberOfRows,columns}){
     let query = headInsert(tableName,columns);
+    query = bodyInsert(numberOfRows,columns,query);
     return writeFile(tableName, query);
 }
