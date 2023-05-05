@@ -25,6 +25,9 @@ function getDate(constraint){
 function randomNumber(min,max){
     return Math.floor(Math.random() * (max - min)) + min;
 }
+function randomFloat(min,max){
+    return Math.random() * (max - min) + min;
+}
 //-------------------------------------------------
 //---- Adress
 function city(){
@@ -147,7 +150,6 @@ function int(constraint){
     if(constraint.includes(" <= "))
         max = +max + 1;
         
-    console.log("*"+  min +"*" + " *" + max + "*");
     return randomNumber(min ?? -1000, max ?? 1000);
 }
 
@@ -159,12 +161,33 @@ function timestamp(constraint){
     let fakeDate = getDate(constraint);
     return `'${fakeDate.replace("T"," ").replace("Z","")}'`
 }
-
+function varchar(constraint){
+    let length = +constraint.split("length = ")[1].split(" ")[0];
+    return `'${faker.lorem.paragraphs(10).slice(0,length - randomNumber(0,length - 2))}`;
+}
+function char(constraint){
+    let length = +constraint.split("length = ")[1].split(" ")[0];
+    return `'${faker.lorem.paragraphs(10).slice(0,length)}`;
+}
+function float(constraint){
+    let {min,max} = getMinMax(constraint);
+    if(constraint.includes(" >"))
+        min = parseFloat(min) + 1;
+    if(constraint.includes(" >= "))
+        min = parseFloat(min) - 1;
+    if(constraint.includes(" <= "))
+        max = parseFloat(max) + 1;
+        
+    return randomFloat(min ?? -100, max ?? 100);
+}
 //----------------------------------------------------
 export let Generator = {
     randomNumber,
     int,
+    float,
     boolean,
+    varchar,
+    char,
     text,
     date,
     timestamp,

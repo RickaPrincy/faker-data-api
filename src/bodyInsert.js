@@ -22,6 +22,9 @@ export function bodyInsert(numberOfRows,columns,query){
                         int: () => Generator.int(column.constraint),
                         date: () => Generator.date(column.constraint),
                         timestamp: () => Generator.timestamp(column.constraint),
+                        char: () => Generator.char(column.constraint),
+                        varchar: () => Generator.varchar(column.constraint),
+                        float: () => Generator.float(column.constraint),
                         boolean: Generator.boolean,
                         text: Generator.text,
                         city : Generator.city,
@@ -61,7 +64,7 @@ export function bodyInsert(numberOfRows,columns,query){
                     query += typeFn ? typeFn(i) : `donnee${column.type}`;
 
                     query += tempQuery.isConstraint ? `${i}'`
-                    : ["boolean", "int", "bigInt","date","timestamp"].includes(column.type) ? ""
+                    : ["boolean", "int", "bigInt","date","timestamp","float"].includes(column.type) ? ""
                     : "'";
 
                 }else query += tempQuery.newQuery

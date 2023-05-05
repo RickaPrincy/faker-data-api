@@ -12,7 +12,7 @@ function notNull(){
 }
 
 function checkIn(column){
-    let tab = column.constraint.split("check in ( ")[1].split(" )")[0].split(" , ");
+    let tab = column.constraint.split("in ( ")[1].split(" )")[0].split(" , ");
 
     if(column.type === "int" || column.type === "bigInt")
         return +tab[Generator.randomNumber(0,tab.length)];
@@ -35,7 +35,7 @@ export function breakConstraint(column,i){
     if(!column.constraint.includes("not null"))
         return notNull();
 
-    if(column.constraint.includes("check in ("))
+    if(column.constraint.includes("in ("))
         return {isConstraint : true, newQuery : checkIn(column)}
     
     return {isConstraint : false};
