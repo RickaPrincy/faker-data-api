@@ -1,19 +1,21 @@
-import { faker } from "@faker-js/faker";
 import { Generator } from "./functionGenerator.js";
 
-function notNull(){
-    let status = false;
-    let query = "";
-    if(Generator.randomNumber(0,6) === 0){
-        query += "null";
-        status = true;
+export function notNull(column){
+    if(!column.constraint.includes("not null" && !column.constraint.includes("primary key"))){
+        let status = false;
+        let query = "";
+        if(Generator.randomNumber(0,6) === 0){
+            query += "null";
+            status = true;
+        }
+        return {isConstraint : status, newQuery : query}; 
     }
-    return {isConstraint : status, newQuery : query}; 
+
+    return {isConstraint : false}
 }
 
 function checkIn(column){
     let tab = column.constraint.split("in ( ")[1].split(" )")[0].split(" , ");
-
     if(column.type === "int" || column.type === "bigInt")
         return +tab[Generator.randomNumber(0,tab.length)];
     else if(column.type === "float" || column.type === "double")
@@ -28,16 +30,11 @@ function primaryKey(column,i){
 }
 
 export function breakConstraint(column,i){
-
     if(column.constraint.includes("primary key"))
         return {isConstraint: true , newQuery : primaryKey(column,i)}
-
-    if(!column.constraint.includes("not null"))
-        return notNull();
-
-    if(column.constraint.includes("in ("))
+    if(column.constraint.includes("in (")){
         return {isConstraint : true, newQuery : checkIn(column)}
-    
+    }
     return {isConstraint : false};
 }
 

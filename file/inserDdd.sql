@@ -1,182 +1,182 @@
 INSERT INTO ddd (
-	fdf
+	dddd
 )
 VALUES 
 --INSERT NUM 1
 (
-	'Fort Samirfort'
+	5
 ),
 --INSERT NUM 2
 (
-	'Paucekhaven'
+	2
 ),
 --INSERT NUM 3
 (
-	null
+	1
 ),
 --INSERT NUM 4
 (
-	'Fort Leonor'
+	1
 ),
 --INSERT NUM 5
 (
-	'West Estel'
+	1
 ),
 --INSERT NUM 6
 (
-	'Ogden'
+	1
 ),
 --INSERT NUM 7
 (
-	null
+	1
 ),
 --INSERT NUM 8
 (
-	null
+	2
 ),
 --INSERT NUM 9
 (
-	'Donnellborough'
+	null
 ),
 --INSERT NUM 10
 (
-	'Jarenbury'
+	5
 ),
 --INSERT NUM 11
 (
-	'South Hipolitoview'
+	5
 ),
 --INSERT NUM 12
 (
-	null
+	2
 ),
 --INSERT NUM 13
 (
-	'Schinnerstead'
+	1
 ),
 --INSERT NUM 14
 (
-	'Fort Minervastead'
+	null
 ),
 --INSERT NUM 15
 (
-	'Rogahntown'
+	2
 ),
 --INSERT NUM 16
 (
-	'Canton'
+	2
 ),
 --INSERT NUM 17
 (
-	'East Esperanzaburgh'
+	2
 ),
 --INSERT NUM 18
 (
-	'Leonorhaven'
+	1
 ),
 --INSERT NUM 19
 (
-	null
+	1
 ),
 --INSERT NUM 20
 (
-	'Fort Annamae'
+	1
 ),
 --INSERT NUM 21
 (
-	'Fort Sandyhaven'
+	5
 ),
 --INSERT NUM 22
 (
-	null
+	1
 ),
 --INSERT NUM 23
 (
-	null
+	2
 ),
 --INSERT NUM 24
 (
-	'North Magdalenbury'
+	1
 ),
 --INSERT NUM 25
 (
-	'East Olgaport'
+	1
 ),
 --INSERT NUM 26
 (
-	'West Chanel'
+	1
 ),
 --INSERT NUM 27
 (
-	'Lake Muhammad'
+	5
 ),
 --INSERT NUM 28
 (
-	'Riverside'
+	2
 ),
 --INSERT NUM 29
 (
-	'Lake Adelia'
+	2
 ),
 --INSERT NUM 30
 (
-	'Klingborough'
+	1
 ),
 --INSERT NUM 31
 (
-	'West Jacinthe'
+	1
 ),
 --INSERT NUM 32
 (
-	'Dunwoody'
+	1
 ),
 --INSERT NUM 33
 (
-	'Wiegandport'
+	2
 ),
 --INSERT NUM 34
 (
-	'Schenectady'
+	null
 ),
 --INSERT NUM 35
 (
-	'Bartonmouth'
+	1
 ),
 --INSERT NUM 36
 (
-	'Temecula'
+	2
 ),
 --INSERT NUM 37
 (
-	null
+	2
 ),
 --INSERT NUM 38
 (
-	'North Marguerite'
+	5
 ),
 --INSERT NUM 39
 (
-	'Fort Taryn'
+	5
 ),
 --INSERT NUM 40
 (
-	'Hackettstead'
+	1
 ),
 --INSERT NUM 41
 (
-	'East Eulah'
+	1
 ),
 --INSERT NUM 42
 (
-	null
+	5
 ),
 --INSERT NUM 43
 (
-	'Chetton'
+	2
 ),
 --INSERT NUM 44
 (
-	'Beahanton'
+	1
 ),
 --INSERT NUM 45
 (
@@ -184,41 +184,41 @@ VALUES
 ),
 --INSERT NUM 46
 (
-	null
+	1
 ),
 --INSERT NUM 47
 (
-	'Cummingsmouth'
+	5
 ),
 --INSERT NUM 48
 (
-	'Ortizborough'
+	5
 ),
 --INSERT NUM 49
 (
-	'Yasminetown'
+	1
 ),
 --INSERT NUM 50
 (
-	'South Osvaldo'
+	5
 ),
 --INSERT NUM 51
 (
-	'Kalebfield'
+	2
 ),
 --INSERT NUM 52
 (
-	null
+	5
 ),
 --INSERT NUM 53
 (
-	'Sadieton'
+	1
 ),
 --INSERT NUM 54
 (
-	'Torphychester'
+	5
 ),
 --INSERT NUM 55
 (
-	'Dayton'
+	2
 ),
