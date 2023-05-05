@@ -1,47 +1,78 @@
 import { Generator } from "./functionGenerator.js";
-import specialConstraint from "./specialConstraint.js";
+import {breakConstraint, continueConstraint} from "./constraint.js";
 
-function virgule(){ return " , " };
-
+const VIRGULE = " , ";
 export function bodyInsert(numberOfRows,columns,query){
 
     for(let i = 1; i <= numberOfRows; i++){
-
-        query += "\n--INSERT NUM " + i + "\n(\n\t";
+        
+        query += `\n--INSERT NUM ${i}\n(\n\t`;
 
         for(let j = 0 ; j < columns.length; j++){
             let column = columns[j];
 
-            const tempQuery = specialConstraint(column);
+            let tempQuery = breakConstraint(column,i);
             if(tempQuery.isConstraint) query += tempQuery.newQuery;
-            else {
-                //différents type
-                switch(column.type){
-                    case "email":
-                        query += Generator.email(i);
-                        break;
-                    case "country": 
-                        query += Generator.country();
-                        break;
-                    case "int": 
-                        query += Generator.int(column.constraint);
-                        break;
-                    case "boolean": 
-                        query += Generator.boolean();
-                        break;
-                    default : 
-                        query += "donnee" + column.type;
-                        break;
-                }
+            else{
+                tempQuery = continueConstraint(column,i);
+
+                if(typeof(tempQuery.newQuery) !== "number"){
+                    
+                    const typeMap = {
+                        int: () => Generator.int(column.constraint),
+                        date: () => Generator.date(column.constraint),
+                        timestamp: () => Generator.timestamp(column.constraint),
+                        boolean: Generator.boolean,
+                        text: Generator.text,
+                        city : Generator.city,
+                        country : Generator.country,
+                        countryCode : Generator.countryCode,
+                        animal : Generator.animal,
+                        color : Generator.color,
+                        colorRgb : Generator.colorRgb,
+                        product : Generator.product,
+                        productDescription : Generator.productDescription,
+                        price : Generator.price,
+                        databaseType : Generator.databaseType,
+                        transactionType : Generator.transactionType,
+                        imageUrl : Generator.imageUrl,
+                        ipv4 : Generator.ipv4,
+                        ipv6 : Generator.ipv6,
+                        email : Generator.email,
+                        adresseMac : Generator.adresseMac,
+                        word : Generator.word,
+                        words : Generator.words,
+                        songType : Generator.songType,
+                        songName : Generator.songName,
+                        gender : Generator.gender,
+                        first_name : Generator.first_name,
+                        last_name : Generator.last_name,
+                        full_name : Generator.full_name,
+                        middleName : Generator.middleName,
+                        jobDescriptor : Generator.jobDescriptor,
+                        jobType : Generator.jobType,
+                        sex : Generator.sex,
+                        vehicule : Generator.vehicule,
+                        fileName : Generator.fileName,
+                        phoneNumber : Generator.phoneNumber
+                    };
+
+                    const typeFn = typeMap[column.type];
+                    query += typeFn ? typeFn(i) : `donnee${column.type}`;
+
+                    query += tempQuery.isConstraint ? `${i}'`
+                    : ["boolean", "int", "bigInt","date","timestamp"].includes(column.type) ? ""
+                    : "'";
+
+                }else query += tempQuery.newQuery
             }
 
-            if(j !== columns.length - 1)
-                query += virgule() + "\n\t" 
+            query += j !== columns.length - 1 ? " , \n\t" : "";
             
         }
 
         query += "\n)";
-        i === numberOfRows ? query +=";" : query +=",";
+        query += i === numberOfRows ? ";" : ",";
     }
     
     return query;

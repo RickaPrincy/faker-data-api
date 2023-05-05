@@ -21,14 +21,34 @@ function checkIn(column){
     return tab[Generator.randomNumber(0,tab.length)];
 }
 
-export default function specialConstraint(column){
-    if(
-        !column.constraint.includes("not null") && 
-        !column.constraint.includes("primary key")
-    ) return notNull();
+function primaryKey(column,i){
+    if(column.type === "int" || column.type === "bigInt")
+        return i;
+    return "'" + i + "'";
+}
+
+export function breakConstraint(column,i){
+
+    if(column.constraint.includes("primary key"))
+        return {isConstraint: true , newQuery : primaryKey(column,i)}
+
+    if(!column.constraint.includes("not null"))
+        return notNull();
 
     if(column.constraint.includes("check in ("))
         return {isConstraint : true, newQuery : checkIn(column)}
     
     return {isConstraint : false};
+}
+
+export function continueConstraint(column,i){
+    if(column.constraint.includes("unique")){
+        if(column.type === "email")
+            return {isConstraint : false}
+        else if(column.type === "int" || column.type === "bigInt")
+            return {isConstraint : true, newQuery : i}
+        else
+            return {isConstraint : true, newQuery : `${i}`}
+    }
+    return {isConstraint : false}
 }
