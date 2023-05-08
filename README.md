@@ -12,7 +12,7 @@ You can change the port by setting the `PORT` environment variable to a differen
 
 <hr>
 
-Once the server is running, you can send a POST request to `http://localhost:5000/generate` with the following JSON body:
+Once the server is running, you can send a POST request to `http://localhost:5000/` with the following JSON body:
 
 ```JSON
 {
@@ -41,7 +41,7 @@ Note that for column constraints, you should put spaces between each keyword. Fo
 
 ## Cleanup
 
-Currently, you will need to manually delete the generated files from the `output` directory after downloading or copying them. We are working on adding automatic cleanup functionality in a future release.
+Currently, you will need to manually delete the generated files from the `output` directory after downloading or copying them.I'm working on adding automatic cleanup functionality in a future release.
 
 ## Default Port
 
