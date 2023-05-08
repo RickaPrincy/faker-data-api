@@ -5,7 +5,7 @@ It allows you to generate SQL insert statements for a given table, with a specif
 
 ## Usage
 
-To use the server, simply run `npm start` in your terminal. By default, the server will listen on port 5000. 
+To use the server, simply run `npm install` and then `npm start` in your terminal. By default, the server will listen on port 5000. 
 You can change the port by setting the `PORT` environment variable to a different value.
 
 ![Step 1](/img/Step1.png "step 1")
