@@ -1,10 +1,11 @@
 {
-  "name": "faker-ui-backend",
+  "name": "faker-backend",
   "version": "1.0.0",
-  "description": "backend for faker-ui",
+  "description": "backend for faker-js",
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "start" : "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

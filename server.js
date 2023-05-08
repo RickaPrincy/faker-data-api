@@ -4,6 +4,8 @@ import fs from "fs";
 import generate from "./src/generate.js";
 
 const app = express();
+
+//here is the port that you can change
 const port = 5000;
 
 
@@ -18,6 +20,7 @@ app.post("/",(req,res)=>{
     res.send({url : "http://localhost:5000/file/" + path});
 });
 
+//for the feature
 app.delete("/:fileName",(req,res)=>{
     if(fs.existsSync("./file/" + req.params.fileName))
         fs.unlink("./file/" + req.params.fileName,(error)=>{
@@ -30,4 +33,4 @@ app.delete("/:fileName",(req,res)=>{
 
 
 /*-----------------------------------------------*/
-app.listen(port, ()=> console.log("app listenin on port " + port + " !"));
+app.listen(port, ()=> console.log("app listening on port " + port + " !"));
