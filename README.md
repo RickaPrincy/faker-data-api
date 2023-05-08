@@ -37,7 +37,7 @@ The server will respond with a JSON object containing a URL to the generated fil
 ```
 
 
-Note that for column constraints, you should put spaces between each keyword. For example, `length=255` will not work, but `length = 255` will. Similarly, `check in('hello','world')` should be written as `check in ('hello', 'world')`.
+Note that for column constraints, you should put spaces between each keyword. For example, `length=255` will not work, but `length = 255` will. Similarly, `check in('hello','world')` should be written as `check in ( 'hello' , 'world' )`.
 
 ## Cleanup
 
