@@ -1,7 +1,7 @@
 import { Generator } from "./functionGenerator.js";
 
 export function notNull(column){
-    if(!column.constraint.includes("not null" && !column.constraint.includes("primary key"))){
+    if(!column.constraint.includes("not null") && !column.constraint.includes("primary key")){
         let status = false;
         let query = "";
         if(Generator.randomNumber(0,6) === 0){

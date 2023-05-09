@@ -78,7 +78,7 @@ export function bodyInsert(numberOfRows,columns,query){
         }
 
         query += "\n)";
-        query += i === numberOfRows ? ";" : ",";
+        query += i === parseInt(numberOfRows) ? ";" : ",";
     }
     
     return query;
