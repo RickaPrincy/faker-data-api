@@ -1,8 +1,5 @@
-type Person = {
-  name: string;
-  age: number;
-};
+import config from "./config";
+import { createServer } from "express-zod-api";
+import router from "./router";
 
-const me: Person = { name: "Rik", age: 5 };
-
-console.log(me);
+createServer(config, router);
