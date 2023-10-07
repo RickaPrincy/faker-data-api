@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "lint": "eslint --cache . --ext .ts",
+    "lint": "eslint . --ext .ts",
     "format-check": "prettier --ignore-path .gitignore --check \"**/*.{js,ts,tsx,json,yml,yaml}\"",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{js,ts,tsx,json,yml,yaml}\"",
     "dev": "npx nodemon src/server.ts",
