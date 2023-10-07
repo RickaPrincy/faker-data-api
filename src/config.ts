@@ -1,18 +1,18 @@
 import { createConfig } from "express-zod-api";
-import * as dotenv from "dotenv" ;
+import * as dotenv from "dotenv";
 
 dotenv.config();
 const port = +process.env.PORT! || 3000;
 
 const config = createConfig({
-  server:{
-    listen: port
+  server: {
+    listen: port,
   },
   cors: true,
-  logger:{
+  logger: {
     level: "debug",
-    color: true
-  }
+    color: true,
+  },
 });
 
 export default config;

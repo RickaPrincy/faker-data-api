@@ -1,12 +1,11 @@
-import { defaultEndpointsFactory } from "express-zod-api"; 
+import { defaultEndpointsFactory } from "express-zod-api";
 import { z } from "zod";
 
-export const helloWorld = defaultEndpointsFactory.build({
+export const getHello = defaultEndpointsFactory.build({
   method: "get",
   input: z.object({}),
-  output: z.object({ name: z.string()}),
-  handler: async ({ options, logger})=>{
-    logger.debug("Options : " + options);
-    return { name: "Ricka" };
+  output: z.object({ hello: z.string() }),
+  handler: async () => {
+    return { hello: "Welcome to faker-backed" };
   },
 });
